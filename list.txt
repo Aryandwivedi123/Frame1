@@ -1,0 +1,49 @@
+import java.awt.*;
+import java.awt.event.*;
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author 91942
+ */
+public class Mylist extends Frame implements ItemListener{
+    String msg="";
+    List list;
+    Mylist()
+    {
+        setLayout(new FlowLayout());
+        list= new List(3);
+        list.add("Aryan");
+        list.add("John");
+        list.add("Rocky");
+        list.add("lorye");
+        add(list);
+        list.addItemListener(this);
+        addWindowListener(new WindowAdapter()
+        {
+          public void windowClosing(WindowEvent e )
+          {
+              System.exit(0);
+          }
+        });
+    }
+    public void itemStateChanged(ItemEvent ie)
+    {
+        repaint();
+    }  
+    public void paint(Graphics g)
+    {
+        
+    }
+    public static void main(String args[])
+    {
+        Mylist ch=new Mylist();
+        ch.setTitle(" List status");
+        ch.setSize(650,600);
+        ch.setVisible(true);
+    }        
+}
